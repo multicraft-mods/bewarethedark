@@ -94,7 +94,7 @@ minetest.register_globalstep(function(dtime)
 
             local name = player:get_player_name()
             local pl = M.players[name]
-            local pos  = player:getpos()
+            local pos  = player:get_pos()
             local pos_y = pos.y
             -- the middle of the block with the player's head
             pos.y = math.floor(pos_y) + 1.5
@@ -116,7 +116,7 @@ minetest.register_globalstep(function(dtime)
 
                 sanity = sanity - dps
                 --print("New sanity "..sanity)
-                if sanity < 0.0 and minetest.setting_getbool("enable_damage") then
+                if sanity < 0.0 and minetest.settings:getbool("enable_damage") then
                     -- how much of this tick is hp damage?
                     overflow_factor = (0.0 - sanity) / dps
                     sanity = 0.0
