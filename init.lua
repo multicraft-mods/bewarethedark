@@ -116,7 +116,7 @@ minetest.register_globalstep(function(dtime)
 
                 sanity = sanity - dps
                 --print("New sanity "..sanity)
-                if sanity < 0.0 and minetest.settings:getbool("enable_damage") then
+                if sanity < 0.0 and minetest.settings:get("enable_damage") then
                     -- how much of this tick is hp damage?
                     overflow_factor = (0.0 - sanity) / dps
                     sanity = 0.0
